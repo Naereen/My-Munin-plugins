@@ -27,7 +27,8 @@ output_values() {
 # Acquire data
 number_of_windows() {
     # We only count the windows in the foreground
-    nb="$( DISPLAY=:0.0 wmctrl -l | awk ' { print $2 } ' | grep -c 0 )"
+    # nb="$( DISPLAY=:0.0 wmctrl -l | awk ' { print $2 } ' | grep -c 0 )"
+    nb="$( wmctrl -l | awk ' { print $2 } ' | grep -c 0 )"
     # if [ "${nb:-0}" -eq 0 ]; then
     #     nb="$( sudo -u lilian wmctrl -l | awk ' { print $2 } ' | grep -c 0 )"
     # fi
@@ -35,7 +36,8 @@ number_of_windows() {
 }
 
 number_of_programs() {
-    nb="$( DISPLAY=:0.0 xlsclients | wc -l )"
+    # nb="$( DISPLAY=:0.0 xlsclients | wc -l )"
+    nb="$( xlsclients | wc -l )"
     # if [ "${nb:-0}" -eq 0 ]; then
     #     nb="$( sudo -u lilian xlsclients | wc -l )"
     # fi
