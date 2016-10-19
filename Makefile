@@ -32,25 +32,35 @@ test__printed_docs:
 	@echo "\n\n# Output for 'printed_docs' plugin:"
 	sudo -u munin munin-run printed_docs
 
+test__st3_tabs:
+	@echo "\n\n# Munin config for 'st3_tabs' plugin:"
+	sudo -u munin munin-run st3_tabs config
+	@echo "\n\n# Output for 'st3_tabs' plugin:"
+	sudo -u munin munin-run st3_tabs
+
 
 # Install all my plugins
 install: install__tmux install__nb_of_plugins install__gui_windows install__printed_docs
 
 install__tmux:
 	@echo "\nInstalling 'tmux.sh' as 'tmux' ..."
-	sudo ln -s ./tmux.sh /etc/munin/plugins/tmux
+	sudo ln -s `pwd`/tmux.sh /etc/munin/plugins/tmux
 
 install__nb_of_plugins:
 	@echo "\nInstalling 'number_of_plugins.sh' as 'nb_of_plugins' ..."
-	sudo ln -s ./number_of_plugins.sh /etc/munin/plugins/nb_of_plugins
+	sudo ln -s `pwd`/number_of_plugins.sh /etc/munin/plugins/nb_of_plugins
 
 install__gui_windows:
 	@echo "\nInstalling 'gui_windows.sh' as 'gui_windows' ..."
-	sudo ln -s ./gui_windows.sh /etc/munin/plugins/gui_windows
+	sudo ln -s `pwd`/gui_windows.sh /etc/munin/plugins/gui_windows
 
 install__printed_docs:
 	@echo "\nInstalling 'nb_printed_documents.sh' as 'printed_docs' ..."
-	sudo ln -s ./nb_printed_documents.sh /etc/munin/plugins/printed_docs
+	sudo ln -s `pwd`/nb_printed_documents.sh /etc/munin/plugins/printed_docs
+
+install__st3_tabs:
+	@echo "\nInstalling 'nb_printed_documents.sh' as 'st3_tabs' ..."
+	sudo ln -s `pwd`/number_st3_tabs.sh /etc/munin/plugins/st3_tabs
 
 
 # DEBUG Munin

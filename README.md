@@ -48,8 +48,9 @@ make install_all    # Ask for sudo password and install all my plugins to /etc/m
 ----
 
 ## List of plugins
-- [X] Number of open tabs, windows and panes in [tmux](https://tmux.github.io/), see [`tmux.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh).
-- [X] Number of open graphical programs and open windows in your window manager, see [`gui_windows.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/gui_windows.sh).
+- [x] Number of open tabs, windows and panes in [tmux](https://tmux.github.io/)? **Done**, see [`tmux.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh), it works but works even better if `user` is well configured (see below).
+- [x] Number of open graphical programs and open windows in your window manager? **Done**, see [`gui_windows.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/gui_windows.sh), it works *only* if `user` is well configured (see below).
+- [x] Number of documents and number of pages printed by my laptop? **In progress**, see [`nb_printed_documents.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/nb_printed_documents.sh). FIXME Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
 
 ### Required configuration
 Edit your `munin-node` configuration file to specify the configuration.
@@ -69,10 +70,9 @@ user lilian   # adapt to your own username
 ## Wishlist for future plugins ?
 I would like to be able to use [Munin](http://www.munin-monitoring.org/) to monitor:
 
-- [ ] Number of documents and number of pages printed by my laptop. FIXME Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
-- [ ] Number of songs played by my music player [GMusicBrowser](http://gmusicbrowser.org) ([by @squentin](https://github.com/squentin/gmusicbrowser/)),
-- [ ] Number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev),
-- [ ] Number of open tabs and windows in [Firefox](https://www.mozilla.org/en-US/firefox/central/),
+- [ ] Number of songs played from morning and number of songs currently in the waiting list, for my music player [GMusicBrowser](http://gmusicbrowser.org) ? ([by @squentin](https://github.com/squentin/gmusicbrowser/))
+- [ ] Number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev) ? It seems tedious... XXX I created this tiny ST3 plugin ([`number_tabs.py`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_tabs.py)), to provide a command `number_tabs`, and the script [`number_st3_tabs.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_st3_tabs.sh) calls it with `subl --background --command number_tabs` from the command line...
+- [ ] ~~Number of open tabs and windows in [Firefox](https://www.mozilla.org/en-US/firefox/central/) ?~~ It seems impossible.
 - [ ] Volume of the main sound card,
 - [ ] Number of USB peripherics connected?
 - [ ] Local [weather](https://github.com/munin-monitoring/contrib/tree/master/plugins/weather/), or temperature of my home.
