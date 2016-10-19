@@ -41,7 +41,7 @@ You can repeat these two steps for every plugins you want to install.
 ----
 
 ## List of plugins
-- [X] number of open tabs, windows and panes in [tmux](https://tmux.github.io/), see [tmux.sh](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh).
+- [X] number of open tabs, windows and panes in [tmux](https://tmux.github.io/), see [`tmux.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh).
 
 ----
 
