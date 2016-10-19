@@ -26,7 +26,7 @@ For instance, if you want to intall the plugin [`number_of_plugins.sh`](https://
 # Be sure it is executable
 chmod 755 number_of_plugins.sh  # By default they should all be executable
 # Then symlink it to /etc/munin/plugins/
-sudo ln -s ${PWD}/number_of_plugins.sh /etc/munin/plugins/plugins
+sudo ln -s ${PWD}/number_of_plugins.sh /etc/munin/plugins/nb_of_plugins
 ```
 
 You can (and should) then check that the plugin works:
@@ -48,7 +48,7 @@ You can repeat these two steps for every plugins you want to install.
 ## Wishlist for future plugins
 I would like to be able to use [Munin](http://www.munin-monitoring.org/) to monitor:
 
-- [ ] number of documents and number of pages printed by my laptop. Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
+- [ ] number of documents and number of pages printed by my laptop. FIXME Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
 - [ ] number of songs played by my music player [GMusicBrowser](http://gmusicbrowser.org) ([by @squentin](https://github.com/squentin/gmusicbrowser/)),
 - [ ] number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev),
 - [ ] number of open tabs and windows in [Firefox](https://www.mozilla.org/en-US/firefox/central/),

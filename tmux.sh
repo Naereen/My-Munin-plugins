@@ -8,7 +8,7 @@
 # Print config
 output_config() {
     echo "graph_title Tmux sessions, windows and panes"
-    echo "graph_category Tmux"
+    echo "graph_category tmux"
     echo "graph_scale no"
     # echo "graph_vlabel Number of Tmux windows"
     echo "sessions.label Tmux sessions"
