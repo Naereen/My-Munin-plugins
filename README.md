@@ -38,6 +38,13 @@ plugins.value 30
 
 You can repeat these two steps for every plugins you want to install.
 
+*Note:* you can also use the provided [`Makefile`](https://github.com/Naereen/My-Munin-plugins/tree/master/Makefile) to install one or all plugins:
+
+```bash
+make install__tmux  # Ask for sudo password and install tmux.sh to /etc/munin/plugins/tmux
+make install_all    # Ask for sudo password and install all my plugins to /etc/munin/plugins/
+```
+
 ----
 
 ## List of plugins
