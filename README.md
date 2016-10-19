@@ -33,7 +33,8 @@ You can (and should) then check that the plugin works:
 
 ```bash
 $ munin-run nb_of_plugins  # Gives the number of plugin currently activated
-plugins.value 30
+plugins.value 34
+myplugins.value 5
 ```
 
 You can repeat these two steps for every plugins you want to install.
