@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="My-munin-plugins : Some tiny plugins for @munin-monitoring, written to learn how to write them... I was curious!">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>My-munin-plugins</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Naereen/My-Munin-plugins">View on GitHub</a>
+
+          <h1 id="project_title">My-munin-plugins</h1>
+          <h2 id="project_tagline">Some tiny plugins for @munin-monitoring, written to learn how to write them... I was curious!</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Naereen/My-Munin-plugins/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Naereen/My-Munin-plugins/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="my-own-plugins-for-munin" class="anchor" href="#my-own-plugins-for-munin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>My own plugins for <a href="http://www.munin-monitoring.org/">Munin</a>
+</h1>
+
+<p>This small repository contains some tiny plugins (written in <a href="https://www.gnu.org/software/bash/">Bash</a> or <a href="https://www.python.org/">Python</a>), for the <a href="http://www.munin-monitoring.org/">Munin</a> monitoring tool.</p>
+
+<p>Despite a <a href="http://gallery.munin-monitoring.org/">very rich plugin collection</a>, I found some that could be missing to someone (well, at least to me), so I decided to write them.
+See below for a list of the plugins I wrote (tiny, and probably bugged), and how to install them.</p>
+
+<hr>
+
+<h2>
+<a id="how-to-install-them" class="anchor" href="#how-to-install-them" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install them?</h2>
+
+<h3>
+<a id="1-first-clone-the-repo" class="anchor" href="#1-first-clone-the-repo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. First clone the repo</h3>
+
+<p>In a classic Ubuntu or Debian Linux environment, with <a href="http://www.munin-monitoring.org/">Munin</a> correctly installed with the default folder configuration, the following commands will <a href="https://help.github.com/articles/cloning-a-repository/">git clone</a> my repository:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> <span class="pl-k">~</span>/.<span class="pl-k">local</span>/etc/munin/    <span class="pl-c"># A certain directory, you can use some place else</span>
+git clone https://github.com/Naereen/My-Munin-plugins ./My-Munin-plugins.git/  <span class="pl-c"># Clone my repo</span>
+<span class="pl-c1">cd</span> ./My-Munin-plugins.git/  <span class="pl-c"># Go to this directory</span></pre></div>
+
+<h3>
+<a id="2-then-install-or-activate-the-plugins-you-want" class="anchor" href="#2-then-install-or-activate-the-plugins-you-want" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Then <a href="http://munin-monitoring.org/wiki/faq#Q:Howdoyouinstallaplugin">install or activate the plugins</a> you want</h3>
+
+<p>Then, pick the plugins you like in <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/">this folder</a>, and <a href="http://guide.munin-monitoring.org/en/latest/plugin/writing.html#activating-the-plugin">install them or activate them</a>.</p>
+
+<p>For instance, if you want to intall the plugin <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/number_of_plugins.sh"><code>number_of_plugins.sh</code></a>, then in the good folder (see step 1) do:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># Be sure it is executable</span>
+chmod 755 number_of_plugins.sh  <span class="pl-c"># By default they should all be executable</span>
+<span class="pl-c"># Then symlink it to /etc/munin/plugins/</span>
+sudo ln -s <span class="pl-smi">${PWD}</span>/number_of_plugins.sh /etc/munin/plugins/nb_of_plugins</pre></div>
+
+<p>You can (and should) then check that the plugin works:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ munin-run nb_of_plugins  <span class="pl-c"># Gives the number of plugin currently activated</span>
+plugins.value 30</pre></div>
+
+<p>You can repeat these two steps for every plugins you want to install.</p>
+
+<p><em>Note:</em> you can also use the provided <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/Makefile"><code>Makefile</code></a> to install one or all plugins:</p>
+
+<div class="highlight highlight-source-shell"><pre>make install__tmux  <span class="pl-c"># Ask for sudo password and install tmux.sh to /etc/munin/plugins/tmux</span>
+make install_all    <span class="pl-c"># Ask for sudo password and install all my plugins to /etc/munin/plugins/</span></pre></div>
+
+<hr>
+
+<h2>
+<a id="list-of-plugins" class="anchor" href="#list-of-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List of plugins</h2>
+
+<ul>
+<li>[x] Number of open tabs, windows and panes in <a href="https://tmux.github.io/">tmux</a>? <strong>Done</strong>, see <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh"><code>tmux.sh</code></a>, it works but works even better if <code>user</code> is well configured (see below).</li>
+<li>[x] Number of open graphical programs and open windows in your window manager? <strong>Done</strong>, see <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/gui_windows.sh"><code>gui_windows.sh</code></a>, it works <em>only</em> if <code>user</code> is well configured (see below).</li>
+<li>[x] Number of documents and number of pages printed by my laptop? <strong>In progress</strong>, see <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/nb_printed_documents.sh"><code>nb_printed_documents.sh</code></a>. FIXME Should already be available from <a href="http://gallery.munin-monitoring.org/printing-index.html">this list</a>!</li>
+<li>[x] Number of open tabs, windows and panes in <a href="https://www.sublimetext.com/3dev">Sublime Text 3</a>. It was harder... I created this tiny ST3 plugin (<a href="https://github.com/Naereen/My-Munin-plugins/tree/master/number_tabs.py"><code>number_tabs.py</code></a>, to install in your <a href="http://docs.sublimetext.info/en/latest/basic_concepts.html#the-user-package"><code>Packages/User</code> directory</a>), in order to have a ST3 command <code>number_tabs</code>. Then the script <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/number_st3_tabs.sh"><code>number_st3_tabs.sh</code></a> calls it with <code>subl --background --command number_tabs</code> from the command line... FIXME do it better!</li>
+</ul>
+
+<h3>
+<a id="required-configuration" class="anchor" href="#required-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Required configuration</h3>
+
+<p>Edit your <code>munin-node</code> configuration file to specify the configuration.</p>
+
+<p>Currently, <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh"><code>tmux.sh</code></a> and <a href="https://github.com/Naereen/My-Munin-plugins/tree/master/gui_windows.sh"><code>gui_windows.sh</code></a> need to be ran from the user <code>$USER</code> (ie, you) and not <code>munin</code>:</p>
+
+<div class="highlight highlight-source-shell"><pre>[tmux]
+user lilian   <span class="pl-c"># adapt to your own username</span>
+
+[gui_windows]
+user lilian   <span class="pl-c"># adapt to your own username</span></pre></div>
+
+<hr>
+
+<h2>
+<a id="wishlist-for-future-plugins-" class="anchor" href="#wishlist-for-future-plugins-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wishlist for future plugins ?</h2>
+
+<p>I would like to be able to use <a href="http://www.munin-monitoring.org/">Munin</a> to monitor:</p>
+
+<ul>
+<li>[ ] <del>Number of songs played from morning and number of songs currently in the waiting list, for my music player <a href="http://gmusicbrowser.org">GMusicBrowser</a> ? (<a href="https://github.com/squentin/gmusicbrowser/">by @squentin</a>)</del> It seems impossible...</li>
+<li>[ ] <del>Number of open tabs and windows in <a href="https://www.mozilla.org/en-US/firefox/central/">Firefox</a> ?</del> It seems impossible...</li>
+<li>[ ] Volume of the main sound card?</li>
+<li>[ ] Number of USB peripherics connected?</li>
+<li>[ ] Local <a href="https://github.com/munin-monitoring/contrib/tree/master/plugins/weather/">weather</a>, or temperature of my home?</li>
+<li>[ ] And you, do you have any other idea?</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="notebook-references-" class="anchor" href="#notebook-references-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji alias="notebook" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4d3.png" ios-version="6.0">📓</g-emoji> References ?</h2>
+
+<ul>
+<li>For more details on <a href="http://www.munin-monitoring.org/">Munin</a>, see the official website, <a href="http://www.munin-monitoring.org/">http://www.munin-monitoring.org/</a>, and the documentation, <a href="http://guide.munin-monitoring.org/">http://guide.munin-monitoring.org/</a>.</li>
+<li>A good introductory page is <a href="http://guide.munin-monitoring.org/en/latest/plugin/writing.html">plugin/writing.html</a> on <a href="http://guide.munin-monitoring.org/en/latest/">the new Munin guide</a>.</li>
+<li>Fore more details on Munin plugins, see first <a href="http://munin-monitoring.org/wiki/plugins">this page (wiki/plugins)</a>, then <a href="http://guide.munin-monitoring.org/en/latest/reference/plugin.html">the reference</a>, and if needed the older pages <a href="http://munin-monitoring.org/wiki/PluginShell">PluginShell</a>, or <a href="http://munin-monitoring.org/wiki/PluginConcise">PluginConcise</a> or <a href="http://munin-monitoring.org/wiki/HowToWritePlugins">HowToWritePlugins</a> on <a href="http://munin-monitoring.org/wiki/">the Munin wiki</a>.</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="other-self-quantified-projects-" class="anchor" href="#other-self-quantified-projects-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other <a href="http://perso.crans.org/besson/self-quantified.en.html">self-quantified projects</a> ?</h2>
+
+<ul>
+<li>
+<a href="https://GitHub.com/Naereen/uLogMe/">uLogMe</a>: keep track of your computer activity throughout the day: visualize your active window titles and the number and frequency of keystrokes, in beautiful and responsive HTML timelines.</li>
+<li>
+<a href="https://github.com/gurgeh/selfspy"><code>selfspy</code></a>: log everything you do on the computer, for statistics, future reference and all-around fun. I also worked a little bit on <a href="https://github.com/Naereen/selfspy-vis">selfspy-vis</a>, some tools to visualize the data collected by <a href="https://github.com/gurgeh/selfspy"><code>selfspy</code></a>.</li>
+<li>My minimalist dashboard, generated every hour (with <a href="https://help.ubuntu.com/community/CronHowto">a <code>crontab</code> file</a>), with this bash script <a href="https://bitbucket.org/lbesson/bin/src/master/GenerateStatsMarkdown.sh"><code>GenerateStatsMarkdown.sh</code></a>.</li>
+</ul>
+
+<hr>
+
+<h2>
+<a id="scroll-license--" class="anchor" href="#scroll-license--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><g-emoji alias="scroll" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4dc.png" ios-version="6.0">📜</g-emoji> License ? <a href="https://github.com/Naereen/My-Munin-plugins/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Naereen/My-Munin-plugins.svg" alt="GitHub license"></a>
+</h2>
+
+<p><a href="https://lbesson.mit-license.org/">MIT Licensed</a> (file <a href="LICENSE.txt">LICENSE.txt</a>).
+© <a href="https://GitHub.com/Naereen">Lilian Besson</a>, 2016.</p>
+
+<p><a href="https://GitHub.com/Naereen/My-Munin-plugins/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a>
+<a href="https://GitHub.com/Naereen/ama"><img src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg" alt="Ask Me Anything !"></a>
+<a href="https://GitHub.com/Naereen/My-Munin-plugins/"><img src="https://ga-beacon.appspot.com/UA-38514290-17/github.com/Naereen/My-Munin-plugins/README.md?pixel" alt="Analytics"></a></p>
+
+<p><a href="https://GitHub.com/Naereen/"><img src="http://ForTheBadge.com/images/badges/built-with-swag.svg" alt="ForTheBadge built-with-swag"></a></p>
+
+<p><a href="http://ForTheBadge.com"><img src="http://ForTheBadge.com/images/badges/uses-badges.svg" alt="ForTheBadge uses-badges"></a>
+<a href="https://GitHub.com/"><img src="http://ForTheBadge.com/images/badges/uses-git.svg" alt="ForTheBadge uses-git"></a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">My-munin-plugins maintained by <a href="https://github.com/Naereen">Naereen</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
