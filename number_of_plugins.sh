@@ -4,6 +4,7 @@
 #
 # From http://guide.munin-monitoring.org/en/latest/plugin/writing.html#example-shell-plugin
 
+# Print config
 output_config() {
     echo "graph_title Munin plugins"
     echo "graph_category munin"
@@ -16,11 +17,13 @@ output_config() {
     echo "myplugins.info Number of plugins installed as links to .git repository. Still experimental. Includes only custom plugins."
 }
 
+# Print data
 output_values() {
     printf "plugins.value %d\n" $(number_of_plugins)
     printf "myplugins.value %d\n" $(number_of_my_plugins)
 }
 
+# Acquire data
 number_of_plugins() {
     find /etc/munin/plugins -type l | wc -l
 }
@@ -30,11 +33,13 @@ number_of_my_plugins() {
     ls -larth /etc/munin/plugins | grep '.git' | wc -l
 }
 
+# Print help
 output_usage() {
     printf >&2 "%s - munin plugin to graph the number of loaded plugins\n" ${0##*/}
     printf >&2 "Usage: %s [config]\n" ${0##*/}
 }
 
+# Parse command line arguments
 case $# in
     0)
         output_values

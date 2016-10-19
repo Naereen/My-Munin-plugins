@@ -20,7 +20,7 @@ cd ./My-Munin-plugins.git/  # Go to this directory
 ### 2. Then [install or activate the plugins](http://munin-monitoring.org/wiki/faq#Q:Howdoyouinstallaplugin) you want
 Then, pick the plugins you like in [this folder](https://github.com/Naereen/My-Munin-plugins/tree/master/), and [install them or activate them](http://guide.munin-monitoring.org/en/latest/plugin/writing.html#activating-the-plugin).
 
-For instance, if you want to intall the plugin [`number_of_plugins.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_of_plugins.she), then in the good folder (see step 1) do:
+For instance, if you want to intall the plugin [`number_of_plugins.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_of_plugins.sh), then in the good folder (see step 1) do:
 
 ```bash
 # Be sure it is executable
@@ -41,7 +41,7 @@ You can repeat these two steps for every plugins you want to install.
 ----
 
 ## List of plugins
-> TODO
+- [X] number of open tabs, windows and panes in [tmux](https://tmux.github.io/), see [tmux.sh](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh).
 
 ----
 
@@ -50,7 +50,8 @@ I would like to be able to use [Munin](http://www.munin-monitoring.org/) to moni
 
 - [ ] number of documents and number of pages printed by my laptop. Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
 - [ ] number of songs played by my music player [GMusicBrowser](http://gmusicbrowser.org) ([by @squentin](https://github.com/squentin/gmusicbrowser/)),
-- [ ] number of open tabs in [tmux](https://tmux.github.io/), [Sublime Text 3](https://www.sublimetext.com/3dev) and [Firefox](https://www.mozilla.org/en-US/firefox/central/),
+- [ ] number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev),
+- [ ] number of open tabs and windows in [Firefox](https://www.mozilla.org/en-US/firefox/central/),
 - [ ] volume of the main sound card,
 - [ ] number of USB peripherics connected?
 - [ ] local [weather](https://github.com/munin-monitoring/contrib/tree/master/plugins/weather/), or temperature of my home.
