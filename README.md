@@ -42,7 +42,20 @@ You can repeat these two steps for every plugins you want to install.
 
 ## List of plugins
 - [X] Number of open tabs, windows and panes in [tmux](https://tmux.github.io/), see [`tmux.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh).
-- [X] Number of open graphical programs and open windows in your window manager, see [`gui_window.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/gui_window.sh).
+- [X] Number of open graphical programs and open windows in your window manager, see [`gui_windows.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/gui_windows.sh).
+
+### Required configuration
+Edit your `munin-node` configuration file to specify the configuration.
+
+Currently, [`tmux.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh) and [`gui_windows.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/gui_windows.sh) need to be ran from the user `$USER` (ie, you) and not `munin`:
+
+```bash
+[tmux]
+user lilian   # adapt to your own username
+
+[gui_windows]
+user lilian   # adapt to your own username
+```
 
 ----
 

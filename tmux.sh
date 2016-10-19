@@ -29,8 +29,11 @@ output_values() {
 
 # Acquire data
 number_of_sessions() {
-    # tmux list-sessions 2>/dev/null | wc -l
-    w | grep -o "tmux([0-9]\+" | sed s/"tmux("// | uniq | wc -l
+    nb="$(tmux list-sessions 2>/dev/null | wc -l)"
+    if [ "${nb:-0}" -eq 0 ]; then
+        nb="$(w | grep -o "tmux([0-9]\+" | sed s/"tmux("// | uniq | wc -l)"
+    fi
+    echo "$nb"
 }
 
 number_of_windows() {
@@ -43,8 +46,11 @@ number_of_windows() {
 
 number_of_panes() {
     # XXX should find a way to be quicker, the last part in Python is slow!
-    # tmux list-windows 2>/dev/null | grep -o "[0-9]\+ panes" | sed s/' panes'/''/ | python -c 'import sys; print(sum(map(int, sys.stdin)))'
-    w | grep -c "tmux([0-9]\+)\.%"
+    nb="$(tmux list-windows 2>/dev/null | grep -o "[0-9]\+ panes" | sed s/' panes'/''/ | python -c 'import sys; print(sum(map(int, sys.stdin)))')"
+    if [ "${nb:-0}" -eq 0 ]; then
+        nb="$(w | grep -c "tmux([0-9]\+)\.%")"
+    fi
+    echo "$nb"
 }
 
 # Print help
