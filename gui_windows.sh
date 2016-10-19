@@ -9,7 +9,7 @@
 output_config() {
     echo "graph_title Windows and programs"
     echo "graph_category system"
-    echo "graph_scale yes"
+    # echo "graph_scale yes"
     echo "graph_info This graph shows the number of graphical windows and programs opened on the system. See <a href='https://github.com/Naereen/My-Munin-plugins/'>here</a> for other plugins written by <a href='https://github.com/Naereen/'>Lilian Besson (Naereen)</a> (<a href='https://lbesson.mit-license.org/'>MIT Licensed</a>)."
     # echo "graph_vlabel Number"
     echo "windows.label Active windows"
