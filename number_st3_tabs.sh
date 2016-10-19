@@ -19,10 +19,12 @@ output_config() {
 # Print data
 output_values() {
     if [ -f /opt/sublime_text/sublime_text -a -x /opt/sublime_text/sublime_text ]; then
-        subl --background --command number_tabs
+        if pidof sublime_text >/dev/null 2>/dev/null; then
+            subl --background --command number_tabs
+            nb="$(number_of_tabs)"
+        fi
     fi
-    nb="$(number_of_tabs)"
-    echo "${nb:-0}"
+    echo "${nb:-st3_tabs.value 0}"
 }
 
 # Acquire data
