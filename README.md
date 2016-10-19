@@ -85,10 +85,14 @@ I would like to be able to use [Munin](http://www.munin-monitoring.org/) to moni
 - A good introductory page is [plugin/writing.html](http://guide.munin-monitoring.org/en/latest/plugin/writing.html) on [the new Munin guide](http://guide.munin-monitoring.org/en/latest/).
 - Fore more details on Munin plugins, see first [this page (wiki/plugins)](http://munin-monitoring.org/wiki/plugins), then [the reference](http://guide.munin-monitoring.org/en/latest/reference/plugin.html), and if needed the older pages [PluginShell](http://munin-monitoring.org/wiki/PluginShell), or [PluginConcise](http://munin-monitoring.org/wiki/PluginConcise) or [HowToWritePlugins](http://munin-monitoring.org/wiki/HowToWritePlugins) on [the Munin wiki](http://munin-monitoring.org/wiki/).
 
+----
+
 ## Other [self-quantified projects](http://perso.crans.org/besson/self-quantified.en.html) ?
 - [uLogMe](https://GitHub.com/Naereen/uLogMe/): keep track of your computer activity throughout the day: visualize your active window titles and the number and frequency of keystrokes, in beautiful and responsive HTML timelines.
 - [`selfspy`](https://github.com/gurgeh/selfspy): log everything you do on the computer, for statistics, future reference and all-around fun. I also worked a little bit on [selfspy-vis](https://github.com/Naereen/selfspy-vis), some tools to visualize the data collected by [`selfspy`](https://github.com/gurgeh/selfspy).
 - My minimalist dashboard, generated every hour (with [a `crontab` file](https://help.ubuntu.com/community/CronHowto)), with this bash script [`GenerateStatsMarkdown.sh`](https://bitbucket.org/lbesson/bin/src/master/GenerateStatsMarkdown.sh).
+
+----
 
 ## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/My-Munin-plugins.svg)](https://github.com/Naereen/My-Munin-plugins/blob/master/LICENSE)
 [MIT Licensed](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
