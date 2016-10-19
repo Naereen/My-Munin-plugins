@@ -58,7 +58,7 @@ restart:
 	/etc/init.d/munin-node restart
 
 munin-log:
-	watch "tail /var/log/munin/munin-node.log"
+	watch "tail -n 40 /var/log/munin/munin-node.log"
 
 plot:
 	sudo -u munin /usr/bin/munin-cron
