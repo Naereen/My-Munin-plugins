@@ -46,7 +46,7 @@ You can repeat these two steps for every plugins you want to install.
 
 ----
 
-## Wishlist for future plugins
+## Wishlist for future plugins ?
 I would like to be able to use [Munin](http://www.munin-monitoring.org/) to monitor:
 
 - [ ] Number of documents and number of pages printed by my laptop. FIXME Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
@@ -62,7 +62,7 @@ I would like to be able to use [Munin](http://www.munin-monitoring.org/) to moni
 ## :notebook: References ?
 - For more details on [Munin](http://www.munin-monitoring.org/), see the official website, http://www.munin-monitoring.org/, and the documentation, http://guide.munin-monitoring.org/.
 - A good introductory page is [plugin/writing.html](http://guide.munin-monitoring.org/en/latest/plugin/writing.html) on [the new Munin guide](http://guide.munin-monitoring.org/en/latest/).
-- Fore more details on Munin plugins, see first [this page (wiki/plugins)](http://munin-monitoring.org/wiki/plugins), then if needed the pages [PluginShell](http://munin-monitoring.org/wiki/PluginShell), or [PluginConcise](http://munin-monitoring.org/wiki/PluginConcise) or [HowToWritePlugins](http://munin-monitoring.org/wiki/HowToWritePlugins) on [the Munin wiki](http://munin-monitoring.org/wiki/).
+- Fore more details on Munin plugins, see first [this page (wiki/plugins)](http://munin-monitoring.org/wiki/plugins), then [the reference](http://guide.munin-monitoring.org/en/latest/reference/plugin.html), and if needed the older pages [PluginShell](http://munin-monitoring.org/wiki/PluginShell), or [PluginConcise](http://munin-monitoring.org/wiki/PluginConcise) or [HowToWritePlugins](http://munin-monitoring.org/wiki/HowToWritePlugins) on [the Munin wiki](http://munin-monitoring.org/wiki/).
 
 ## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/My-Munin-plugins.svg)](https://github.com/Naereen/My-Munin-plugins/blob/master/LICENSE)
 [MIT Licensed](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
