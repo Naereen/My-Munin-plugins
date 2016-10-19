@@ -18,25 +18,34 @@ output_config() {
     echo "pages.info This graph shows the number printed pages every day on the system."
 }
 
-# Local config
-# logfile="/tmp/cups_completed_jogs_log_from_munin_${$}.html"  # DEBUG
-logfile="/tmp/cups_completed_jogs_log_from_munin.html"
-
 # Print data
 output_values() {
-    # getlogs
-    printf "documents.value %d\n" "$(number_of_documents)"
-    printf "pages.value %d\n" "$(number_of_pages)"
+    if [ X"$USER" = Xlilian ]; then
+        logfile="/tmp/cups_completed_jogs_log.html"
+        getlogs "$logfile"
+        printf "documents.value %d\n" "$(number_of_documents "$logfile")"
+        printf "pages.value %d\n" "$(number_of_pages "$logfile")"
+    else
+        ## logfile="/tmp/cups_completed_jogs_log_from_munin.html"
+        ## logfile="/tmp/cups_completed_jogs_log_from_munin_${$}.html"  # DEBUG
+        ## number_of_documents_from_munin="$(cat /tmp/)"
+        ## printf "documents.value %d\n" "${number_of_documents_from_munin}"
+        ## number_of_pages_from_munin="$(cat /tmp/)"
+        ## printf "pages.value %d\n" "${number_of_pages_from_munin}"
+        # echo "Reading from '/tmp/nb_printed_documents.sh.output.txt' ..." 1>&2  #/dev/stderr  # DEBUG
+        cat /tmp/nb_printed_documents.sh.output.txt 1>&2  # DEBUG
+        # cat /tmp/nb_printed_documents.sh.output.txt
+    fi
 }
 
 # Acquire data
 getlogs(){
-    wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O "$logfile"
+    wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O "${1:-logfile}"
 }
 
 number_of_documents() {
-    # nb="$(html2text -width 1000 "$logfile" | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
-    nb="$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 1000 | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
+    nb="$(html2text -width 1000 "${1:-logfile}" | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
+    # nb="$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 1000 | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
     # if [ "${nb:-0}" -eq 0 ]; then
     #     nb="$(XXX other command)"
     # fi
@@ -44,8 +53,8 @@ number_of_documents() {
 }
 
 number_of_pages() {
-    # nb=$(html2text -width 1000 "$logfile" | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
-    nb=$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 1000 | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
+    nb=$(html2text -width 1000 "${1:-logfile}" | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
+    # nb=$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 1000 | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
     # if [ "${nb:-0}" -eq 0 ]; then
     #     nb="$(XXX other command)"
     # fi
