@@ -19,12 +19,12 @@ output_config() {
 }
 
 # Local config
-# logfile="/tmp/cups_completed_jogs_log_from_munin_${$}.html"
+# logfile="/tmp/cups_completed_jogs_log_from_munin_${$}.html"  # DEBUG
 logfile="/tmp/cups_completed_jogs_log_from_munin.html"
 
 # Print data
 output_values() {
-    getlogs
+    # getlogs
     printf "documents.value %d\n" "$(number_of_documents)"
     printf "pages.value %d\n" "$(number_of_pages)"
 }
@@ -35,7 +35,8 @@ getlogs(){
 }
 
 number_of_documents() {
-    nb="$(html2text -width 1000 "$logfile" | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
+    # nb="$(html2text -width 1000 "$logfile" | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
+    nb="$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 1000 | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
     # if [ "${nb:-0}" -eq 0 ]; then
     #     nb="$(XXX other command)"
     # fi
@@ -43,7 +44,8 @@ number_of_documents() {
 }
 
 number_of_pages() {
-    nb=$(html2text -width 1000 "$logfile" | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
+    # nb=$(html2text -width 1000 "$logfile" | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
+    nb=$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 1000 | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
     # if [ "${nb:-0}" -eq 0 ]; then
     #     nb="$(XXX other command)"
     # fi

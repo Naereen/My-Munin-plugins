@@ -7,27 +7,27 @@
 # DEBUG each scripts
 tmux:
 	@echo "\n\n# Munin config for 'tmux' plugin:"
-	munin-run tmux config
+	@sudo -u munin munin-run tmux config
 	@echo "\n\n# Output for 'tmux' plugin:"
-	munin-run tmux
+	@sudo -u munin munin-run tmux
 
 nb_of_plugins:
 	@echo "\n\n# Munin config for 'nb_of_plugins' plugin:"
-	munin-run nb_of_plugins config
+	@sudo -u munin munin-run nb_of_plugins config
 	@echo "\n\n# Output for 'nb_of_plugins' plugin:"
-	munin-run nb_of_plugins
+	@sudo -u munin munin-run nb_of_plugins
 
 gui_windows:
 	@echo "\n\n# Munin config for 'gui_windows' plugin:"
-	munin-run gui_windows config
+	@sudo -u munin munin-run gui_windows config
 	@echo "\n\n# Output for 'gui_windows' plugin:"
-	munin-run gui_windows
+	@sudo -u munin munin-run gui_windows
 
 printed_docs:
 	@echo "\n\n# Munin config for 'printed_docs' plugin:"
-	munin-run printed_docs config
+	@sudo -u munin munin-run printed_docs config
 	@echo "\n\n# Output for 'printed_docs' plugin:"
-	munin-run printed_docs
+	@sudo -u munin munin-run printed_docs
 
 # DEBUG Munin
 restart:
@@ -37,7 +37,7 @@ taillog:
 	watch "tail /var/log/munin/munin-node.log"
 
 replot:
-	sudo -u munin /usr/bin/munin-cron
+	@sudo -u munin /usr/bin/munin-cron
 
 check:
 	munin-check
