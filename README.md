@@ -51,6 +51,7 @@ make install_all    # Ask for sudo password and install all my plugins to /etc/m
 - [x] Number of open tabs, windows and panes in [tmux](https://tmux.github.io/)? **Done**, see [`tmux.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh), it works but works even better if `user` is well configured (see below).
 - [x] Number of open graphical programs and open windows in your window manager? **Done**, see [`gui_windows.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/gui_windows.sh), it works *only* if `user` is well configured (see below).
 - [x] Number of documents and number of pages printed by my laptop? **In progress**, see [`nb_printed_documents.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/nb_printed_documents.sh). FIXME Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
+- [x] Number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev). It was harder... I created this tiny ST3 plugin ([`number_tabs.py`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_tabs.py), to install in your [`Packages/User` directory](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-user-package)), in order to have a ST3 command `number_tabs`. Then the script [`number_st3_tabs.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_st3_tabs.sh) calls it with `subl --background --command number_tabs` from the command line... FIXME do it better!
 
 ### Required configuration
 Edit your `munin-node` configuration file to specify the configuration.
@@ -71,7 +72,6 @@ user lilian   # adapt to your own username
 I would like to be able to use [Munin](http://www.munin-monitoring.org/) to monitor:
 
 - [ ] Number of songs played from morning and number of songs currently in the waiting list, for my music player [GMusicBrowser](http://gmusicbrowser.org) ? ([by @squentin](https://github.com/squentin/gmusicbrowser/))
-- [ ] Number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev) ? It seems tedious... XXX I created this tiny ST3 plugin ([`number_tabs.py`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_tabs.py)), to provide a command `number_tabs`, and the script [`number_st3_tabs.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_st3_tabs.sh) calls it with `subl --background --command number_tabs` from the command line...
 - [ ] ~~Number of open tabs and windows in [Firefox](https://www.mozilla.org/en-US/firefox/central/) ?~~ It seems impossible.
 - [ ] Volume of the main sound card,
 - [ ] Number of USB peripherics connected?

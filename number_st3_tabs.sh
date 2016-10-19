@@ -12,7 +12,7 @@ output_config() {
     echo "graph_vlabel Number of tabs"
     echo "graph_info This graph shows the number of tabs opened in your <a href='https://www.sublimetext.com/3'>Sublime Text 3</a> text editor. See <a href='https://github.com/Naereen/My-Munin-plugins/'>here</a> for other plugins written by <a href='https://github.com/Naereen/'>Lilian Besson (Naereen)</a> (<a href='https://lbesson.mit-license.org/'>MIT Licensed</a>)."
     echo "st3tabs.label Opened tabs"
-    echo "st3tabs.info Total number of tabs to be opened in the current view of your <a href='https://www.sublimetext.com/3'>Sublime Text 3</a>."
+    echo "st3tabs.info Total number of tabs to be opened in the current view of your Sublime Text 3."
 }
 
 
