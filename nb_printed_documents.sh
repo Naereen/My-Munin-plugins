@@ -18,6 +18,10 @@ output_config() {
     echo "pages.info This graph shows the number printed pages every day on the system."
 }
 
+
+# logfile="/tmp/cups_completed_jogs_log_from_munin.html"
+logfile="/tmp/cups_completed_jogs_log_from_munin_${$}.html"  # DEBUG
+
 # Print data
 output_values() {
     if [ X"$USER" = Xlilian ]; then
@@ -44,8 +48,8 @@ getlogs(){
 }
 
 number_of_documents() {
-    nb="$(html2text -width 1000 "${1:-logfile}" | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
-    # nb="$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 1000 | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
+    # nb="$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 100 | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
+    nb="$(html2text -width 100 "${1:-logfile}" | grep -B 1 "$(date "+%a %d %b %Y")" | grep -c completed)"
     # if [ "${nb:-0}" -eq 0 ]; then
     #     nb="$(XXX other command)"
     # fi
@@ -53,8 +57,8 @@ number_of_documents() {
 }
 
 number_of_pages() {
-    nb=$(html2text -width 1000 "${1:-logfile}" | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
-    # nb=$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 1000 | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
+    # nb=$(wget --quiet 'http://127.0.0.1:631/jobs?which_jobs=completed' -O - | html2text -width 100 | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
+    nb=$(html2text -width 100 "${1:-logfile}" | grep -B 1 "$(date "+%a %d %b %Y")" | grep completed | awk ' { print $3 }' | grep -o "[0-9]*" | python -c 'import sys; print(sum(map(int, sys.stdin)))')
     # if [ "${nb:-0}" -eq 0 ]; then
     #     nb="$(XXX other command)"
     # fi
