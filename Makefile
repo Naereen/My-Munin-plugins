@@ -23,9 +23,18 @@ gui_windows:
 	@echo "\n\n# Output for 'gui_windows' plugin:"
 	munin-run gui_windows
 
+printed_docs:
+	@echo "\n\n# Munin config for 'printed_docs' plugin:"
+	munin-run printed_docs config
+	@echo "\n\n# Output for 'printed_docs' plugin:"
+	munin-run printed_docs
+
 # DEBUG Munin
 restart:
 	/etc/init.d/munin-node restart
+
+taillog:
+	watch "tail /var/log/munin/munin-node.log"
 
 replot:
 	sudo -u munin /usr/bin/munin-cron
