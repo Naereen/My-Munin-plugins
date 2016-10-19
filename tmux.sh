@@ -9,6 +9,7 @@
 output_config() {
     echo "graph_title Tmux sessions, windows and panes"
     echo "graph_category tmux"
+    echo "graph_info This graph shows the number of sessions, windows and panes opened on the system. See <a href='https://github.com/Naereen/My-Munin-plugins/'>here</a> for other plugins written by <a href='https://github.com/Naereen/'>Lilian Besson (Naereen)</a> (<a href='https://lbesson.mit-license.org/'>MIT Licensed</a>)."
     # echo "graph_scale no"
     # echo "graph_vlabel Number of Tmux windows"
     echo "sessions.label Tmux sessions"
@@ -21,29 +22,29 @@ output_config() {
 
 # Print data
 output_values() {
-    printf "sessions.value %d\n" $(number_of_sessions)
-    printf "windows.value %d\n" $(number_of_windows)
-    printf "panes.value %d\n" $(number_of_panes)
+    printf "sessions.value %d\n" "$(number_of_sessions)"
+    printf "windows.value %d\n" "$(number_of_windows)"
+    printf "panes.value %d\n" "$(number_of_panes)"
 }
 
 # Acquire data
 number_of_sessions() {
     # tmux list-sessions 2>/dev/null | wc -l
-    w | grep -o "tmux([0-9]\+" | sed s/"tmux("/""/ | uniq | wc -l
+    w | grep -o "tmux([0-9]\+" | sed s/"tmux("// | uniq | wc -l
 }
 
 number_of_windows() {
-    nb=$(tmux list-windows 2>/dev/null | wc -l)
-    if [ $nb -eq 0 ]; then
+    nb="$(tmux list-windows 2>/dev/null | wc -l)"
+    if [ "${nb:-0}" -eq 0 ]; then
         nb=$(number_of_panes)
     fi
-    echo $nb
+    echo "$nb"
 }
 
 number_of_panes() {
     # XXX should find a way to be quicker, the last part in Python is slow!
     # tmux list-windows 2>/dev/null | grep -o "[0-9]\+ panes" | sed s/' panes'/''/ | python -c 'import sys; print(sum(map(int, sys.stdin)))'
-    w | grep "tmux([0-9]\+)\.%" | wc -l
+    w | grep -c "tmux([0-9]\+)\.%"
 }
 
 # Print help
@@ -61,11 +62,11 @@ case $# in
         case $1 in
             config)
                 output_config
-                ;;
+            ;;
             *)
                 output_usage
                 exit 1
-                ;;
+            ;;
         esac
         ;;
     *)

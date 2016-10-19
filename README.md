@@ -41,20 +41,21 @@ You can repeat these two steps for every plugins you want to install.
 ----
 
 ## List of plugins
-- [X] number of open tabs, windows and panes in [tmux](https://tmux.github.io/), see [`tmux.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh).
+- [X] Number of open tabs, windows and panes in [tmux](https://tmux.github.io/), see [`tmux.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/tmux.sh).
+- [X] Number of open graphical programs and open windows in your window manager, see [`gui_window.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/gui_window.sh).
 
 ----
 
 ## Wishlist for future plugins
 I would like to be able to use [Munin](http://www.munin-monitoring.org/) to monitor:
 
-- [ ] number of documents and number of pages printed by my laptop. FIXME Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
-- [ ] number of songs played by my music player [GMusicBrowser](http://gmusicbrowser.org) ([by @squentin](https://github.com/squentin/gmusicbrowser/)),
-- [ ] number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev),
-- [ ] number of open tabs and windows in [Firefox](https://www.mozilla.org/en-US/firefox/central/),
-- [ ] volume of the main sound card,
-- [ ] number of USB peripherics connected?
-- [ ] local [weather](https://github.com/munin-monitoring/contrib/tree/master/plugins/weather/), or temperature of my home.
+- [ ] Number of documents and number of pages printed by my laptop. FIXME Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
+- [ ] Number of songs played by my music player [GMusicBrowser](http://gmusicbrowser.org) ([by @squentin](https://github.com/squentin/gmusicbrowser/)),
+- [ ] Number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev),
+- [ ] Number of open tabs and windows in [Firefox](https://www.mozilla.org/en-US/firefox/central/),
+- [ ] Volume of the main sound card,
+- [ ] Number of USB peripherics connected?
+- [ ] Local [weather](https://github.com/munin-monitoring/contrib/tree/master/plugins/weather/), or temperature of my home.
 
 ----
 

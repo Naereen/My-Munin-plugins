@@ -10,7 +10,7 @@ output_config() {
     echo "graph_category munin"
     echo "graph_scale no"
     echo "graph_vlabel Number of plugins"
-    echo "graph_info This graph shows the number of munin plugins being installed on the system."
+    echo "graph_info This graph shows the number of munin plugins being installed on the system. See <a href='https://github.com/Naereen/My-Munin-plugins/'>here</a> for other plugins written by <a href='https://github.com/Naereen/'>Lilian Besson (Naereen)</a> (<a href='https://lbesson.mit-license.org/'>MIT Licensed</a>)."
     echo "plugins.label All plugins"
     echo "plugins.info Total number of plugins to be installed. Includes default and custom plugins."
     echo "myplugins.label Homemade plugins"
