@@ -96,7 +96,7 @@ I would like to be able to use [Munin](http://www.munin-monitoring.org/) to moni
 ----
 
 ## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/My-Munin-plugins.svg)](https://github.com/Naereen/My-Munin-plugins/blob/master/LICENSE)
-[MIT Licensed](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
+[MIT Licensed](https://lbesson.mit-license.org/) (file [LICENSE](LICENSE)).
 © [Lilian Besson](https://GitHub.com/Naereen), 2016.
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/My-Munin-plugins/graphs/commit-activity)
