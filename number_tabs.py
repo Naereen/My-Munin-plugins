@@ -17,6 +17,7 @@ About:
 - *Licence:* MIT Licence (http://lbesson.mit-license.org)
 """
 
+from __future__ import print_function   # Python 2/3 compatible
 import sublime
 import sublime_plugin
 
