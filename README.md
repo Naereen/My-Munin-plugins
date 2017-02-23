@@ -53,6 +53,7 @@ make install_all    # Ask for sudo password and install all my plugins to /etc/m
 - [x] Number of open graphical programs and open windows in your window manager ? **Done**, see [`gui_windows.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/gui_windows.sh), it works *only* if `user` is well configured (see below).
 - [x] Number of open tabs, windows and panes in [Sublime Text 3](https://www.sublimetext.com/3dev) ? It was harder... I created this tiny ST3 plugin ([`number_tabs.py`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_tabs.py), to install in your [`Packages/User` directory](http://docs.sublimetext.info/en/latest/basic_concepts.html#the-user-package)), in order to have a ST3 command `number_tabs`. Then the script [`number_st3_tabs.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/number_st3_tabs.sh) calls it with `subl --background --command number_tabs` from the command line... FIXME do it better?
 - [x] Number of documents and number of pages printed by my laptop ? **In progress**, see [`nb_printed_documents.sh`](https://github.com/Naereen/My-Munin-plugins/tree/master/nb_printed_documents.sh). FIXME Should already be available from [this list](http://gallery.munin-monitoring.org/printing-index.html)!
+- [ ] Number of channels, users, groups and active users for a [Slack team](https://slack.com/) ? **Done** with [this Python file that accesses the Slack API](get-nb-of-connected-slack-users.py) and [this Bash file that prints the config or values](get-nb-of-connected-slack-users.sh).
 
 ### Required configuration
 Edit your `munin-node` configuration file to specify the configuration.
@@ -69,20 +70,43 @@ user lilian   # adapt to your own username
 
 ----
 
+## Some screenshots
+### [Tmux](tmux.sh)
+- On the main page:
+![tmux](screenshots/tmux.png)
+- On the page for this plugin (with the legend and information on the plots):
+![tmux_2](screenshots/tmux_2.png)
+
+## [GUI Windows](gui_windows.sh)
+- On the main page:
+![gui_windows](screenshots/gui_windows.png)
+
+### [Munin plugins](number_of_plugins.sh)
+- On the main page:
+![number_of_plugins](screenshots/number_of_plugins.png)
+- On the page for this plugin (with the legend and information on the plots):
+![number_of_plugins_2](screenshots/number_of_plugins_2.png)
+
+### [Slack stats](get-nb-of-connected-slack-users.sh)
+- On the main page:
+![get-nb-of-connected-slack-users](screenshots/get-nb-of-connected-slack-users.png)
+
+----
+
 ## Wishlist for future plugins ?
 I would like to be able to use [Munin](http://www.munin-monitoring.org/) to monitor:
 
-- [ ] ~~Number of songs played from morning and number of songs currently in the waiting list, for my music player [GMusicBrowser](http://gmusicbrowser.org) ? ([by @squentin](https://github.com/squentin/gmusicbrowser/))~~ It seems impossible...
+- [ ] ~~Number of songs played from morning and number of songs currently in the waiting list, for my music player [GMusicBrowser](http://gmusicbrowser.org) ? ([by @squentin](https://github.com/squentin/gmusicbrowser/))~~ It seems impossible... (I explored the cli API of GMusicBrowser and it seems unachievable)
 - [ ] ~~Number of open tabs and windows in [Firefox](https://www.mozilla.org/en-US/firefox/central/) ?~~ It seems impossible...
-- [ ] Volume of the main sound card?
-- [ ] Number of USB peripherics connected?
+- [ ] Volume of the main sound card? Seems possible. But useless?
+- [ ] Number of USB peripherics connected? Completely useless.
 - [ ] Local [weather](https://github.com/munin-monitoring/contrib/tree/master/plugins/weather/), or temperature of my home?
-- [ ] And you, do you have any other idea?
+- [ ] ... And you, do you have any other idea?
 
 ----
 
 ## :notebook: References ?
-- For more details on [Munin](http://www.munin-monitoring.org/), see the official website, http://www.munin-monitoring.org/, and the documentation, http://guide.munin-monitoring.org/.
+- For more details on [Munin](http://www.munin-monitoring.org/), see the official website, [www.munin-monitoring.org](http://www.munin-monitoring.org/), and the documentation, [guide.munin-monitoring.org](http://guide.munin-monitoring.org/).
 - A good introductory page is [plugin/writing.html](http://guide.munin-monitoring.org/en/latest/plugin/writing.html) on [the new Munin guide](http://guide.munin-monitoring.org/en/latest/).
 - Fore more details on Munin plugins, see first [this page (wiki/plugins)](http://munin-monitoring.org/wiki/plugins), then [the reference](http://guide.munin-monitoring.org/en/latest/reference/plugin.html), and if needed the older pages [PluginShell](http://munin-monitoring.org/wiki/PluginShell), or [PluginConcise](http://munin-monitoring.org/wiki/PluginConcise) or [HowToWritePlugins](http://munin-monitoring.org/wiki/HowToWritePlugins) on [the Munin wiki](http://munin-monitoring.org/wiki/).
 
