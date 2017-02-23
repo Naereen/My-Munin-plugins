@@ -5,7 +5,7 @@
 #
 
 # DEBUG all scripts
-test: test__tmux test__nb_of_plugins test__gui_windows test__printed_docs
+test: test__tmux test__nb_of_plugins test__gui_windows test__printed_docs test__slack_stats
 
 # DEBUG each scripts
 test__tmux:
@@ -38,9 +38,15 @@ test__st3_tabs:
 	@echo "\n\n# Output for 'st3_tabs' plugin:"
 	sudo -u munin munin-run st3_tabs
 
+test__slack_stats:
+	@echo "\n\n# Munin config for 'slack_stats' plugin:"
+	sudo -u munin munin-run slack_stats config
+	@echo "\n\n# Output for 'slack_stats' plugin:"
+	sudo -u munin munin-run slack_stats
+
 
 # Install all my plugins
-install: install__tmux install__nb_of_plugins install__gui_windows install__printed_docs
+install: install__tmux install__nb_of_plugins install__gui_windows install__printed_docs test__slack_stats
 
 install__tmux:
 	@echo "\nInstalling 'tmux.sh' as 'tmux' ..."
@@ -59,8 +65,12 @@ install__printed_docs:
 	sudo ln -s `pwd`/nb_printed_documents.sh /etc/munin/plugins/printed_docs
 
 install__st3_tabs:
-	@echo "\nInstalling 'nb_printed_documents.sh' as 'st3_tabs' ..."
+	@echo "\nInstalling 'number_st3_tabs.sh' as 'st3_tabs' ..."
 	sudo ln -s `pwd`/number_st3_tabs.sh /etc/munin/plugins/st3_tabs
+
+install__slack_stats:
+	@echo "\nInstalling 'get-nb-of-connected-slack-users.sh' as 'slack_stats' ..."
+	sudo ln -s `pwd`/get-nb-of-connected-slack-users.sh /etc/munin/plugins/slack_stats
 
 
 # DEBUG Munin
