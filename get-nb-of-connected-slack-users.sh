@@ -13,18 +13,18 @@ output_config() {
     echo "graph_category Slack"
     echo "graph_scale no"
     echo "graph_vlabel Number of"
-    echo "graph_info This graph shows the number of users, channels, groups of a Slack team. See <a href='https://github.com/Naereen/My-Munin-plugins/'>here</a> for other plugins written by <a href='https://github.com/Naereen/'>Lilian Besson (Naereen)</a> (<a href='https://lbesson.mit-license.org/'>MIT Licensed</a>)."
+    echo "graph_info This graph shows the number of users, channels, groups of a Slack team. Write your Slack API token in the file .slack_api_key in this directory. See <a href='https://github.com/Naereen/My-Munin-plugins/'>here</a> for other plugins written by <a href='https://github.com/Naereen/'>Lilian Besson (Naereen)</a> (<a href='https://lbesson.mit-license.org/'>MIT Licensed</a>)."
     # Legend for the graphs
     echo "channels.label Number of channels"
-    echo "channels.info Call the Slack API for our <a href='https://sceeteam.slack.com/'>SCEE team</a> to get the number of channels"
+    echo "channels.info Call the Slack API for your Team, to get the number of channels"
     echo "users.label Number of users"
-    echo "users.info Call the Slack API for our <a href='https://sceeteam.slack.com/'>SCEE team</a> to get the number of users"
+    echo "users.info Call the Slack API for your Team, to get the number of users"
     # echo "activeusers.label Number of active users"
-    # echo "activeusers.info Call the Slack API for our <a href='https://sceeteam.slack.com/'>SCEE team</a> to get the number of channels"
+    # echo "activeusers.info Call the Slack API for your Team, to get the number of channels"
     echo "usergroups.label Number of user groups"
-    echo "usergroups.info Call the Slack API for our <a href='https://sceeteam.slack.com/'>SCEE team</a> to get the number of user groups"
+    echo "usergroups.info Call the Slack API for your Team, to get the number of user groups"
     echo "groups.label Number of groups"
-    echo "groups.info Call the Slack API for our <a href='https://sceeteam.slack.com/'>SCEE team</a> to get the number of groups"
+    echo "groups.info Call the Slack API for your Team, to get the number of groups"
 }
 
 # Print data
